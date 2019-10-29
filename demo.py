@@ -17,11 +17,15 @@ cursor = connection.cursor()
 
 # cursor.execute('INSERT INTO table2 (id, completed) VALUES (%s, %s);', (2, False))
 
-cursor.execute('INSERT INTO table2 (id, completed) VALUES (%(id)s, %(completed)s);',
-               {
-                   'id': 3,
-                   'completed': True
-               })
+
+data = {
+    'id': 4,
+    'completed': False
+}
+
+SQL = 'INSERT INTO table2 (id, completed) VALUES (%(id)s, %(completed)s);'
+
+cursor.execute(SQL, data)
 
 connection.commit()
 
