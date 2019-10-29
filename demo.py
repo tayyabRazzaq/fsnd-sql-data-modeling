@@ -30,6 +30,8 @@ SQL = 'SELECT * from table2;'
 cursor.execute(SQL)
 result = cursor.fetchmany(2)
 print(result)
+result = cursor.fetchone()
+print(result)
 
 connection.commit()
 
