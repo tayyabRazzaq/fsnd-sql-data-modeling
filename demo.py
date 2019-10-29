@@ -18,14 +18,18 @@ cursor = connection.cursor()
 # cursor.execute('INSERT INTO table2 (id, completed) VALUES (%s, %s);', (2, False))
 
 
-data = {
-    'id': 4,
-    'completed': False
-}
+# data = {
+#     'id': 4,
+#     'completed': False
+# }
+#
+# SQL = 'INSERT INTO table2 (id, completed) VALUES (%(id)s, %(completed)s);'
 
-SQL = 'INSERT INTO table2 (id, completed) VALUES (%(id)s, %(completed)s);'
+SQL = 'SELECT * from table2;'
 
-cursor.execute(SQL, data)
+cursor.execute(SQL)
+result = cursor.fetchall()
+print(result)
 
 connection.commit()
 
