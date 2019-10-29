@@ -28,7 +28,7 @@ cursor = connection.cursor()
 SQL = 'SELECT * from table2;'
 
 cursor.execute(SQL)
-result = cursor.fetchall()
+result = cursor.fetchone()
 print(result)
 
 connection.commit()
