@@ -1,4 +1,4 @@
-from flask import Flask, escape, url_for
+from flask import Flask, escape, url_for, request
 
 app = Flask(__name__)
 
@@ -24,6 +24,14 @@ def show_post(post_id):
 def show_subpath(subpath):
     # show the subpath after /path/
     return 'Subpath %s' % escape(subpath)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return 'do_the_login()'
+    else:
+        return 'show_the_login_form()'
 
 
 with app.test_request_context():
